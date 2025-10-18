@@ -1,0 +1,87 @@
+/* General Body Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Custom card styling */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+}
+
+/* Prescription Print Area Styling */
+#prescription-to-print {
+    font-family: 'Times New Roman', Times, serif;
+    color: #000;
+}
+
+#prescription-header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+#prescription-header p {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+}
+
+.rx-symbol {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+#medicines-list-display td {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    vertical-align: top;
+}
+
+/* Responsive font size for the header on smaller screens */
+@media (max-width: 576px) {
+    #prescription-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Styling for medicine rows in the form */
+.medicine-row {
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #fafafa;
+}
+
+/* History list styling */
+.list-group-item {
+    cursor: pointer;
+}
+.list-group-item:hover {
+    background-color: #e9ecef;
+}
+
+/* Print-specific styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #prescription-to-print, #prescription-to-print * {
+        visibility: visible;
+    }
+    #prescription-to-print {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+}
+
+/* Alert styles */
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}

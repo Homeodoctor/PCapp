@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Prescription Pad</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="card p-4 shadow-sm">
+                    <div id="prescription-to-print">
+                        <div id="prescription-header" class="text-center border-bottom pb-3 mb-4">
+                            </div>
+                        <div id="prescription-body">
+                            <div class="row mb-3">
+                                <div class="col-6"><strong>Patient:</strong> <span id="patient-name-display"></span></div>
+                                <div class="col-3"><strong>Age:</strong> <span id="patient-age-display"></span></div>
+                                <div class="col-3"><strong>Gender:</strong> <span id="patient-gender-display"></span></div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-6"><strong>Contact:</strong> <span id="patient-contact-display"></span></div>
+                                <div class="col-6 text-end"><strong>Date:</strong> <span id="current-date-display"></span></div>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Diagnosis:</strong> <span id="diagnosis-display"></span>
+                            </div>
+                            <div class="medicines-display-area">
+                                <h4 class="mb-3 rx-symbol">℞</h4>
+                                <table class="table table-sm table-borderless">
+                                    <tbody id="medicines-list-display">
+                                        </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="prescription-footer" class="text-center border-top pt-3 mt-4">
+                             </div>
+                    </div>
+                </div>
+
+                 <div class="card p-4 mt-4 shadow-sm">
+                     <h3 class="mb-4">Create New Prescription</h3>
+                    <form id="patient-info-form">
+                        <h5>1. Patient Information</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6"><input type="text" class="form-control" id="patient-name" placeholder="Patient Name" required></div>
+                            <div class="col-md-3"><input type="number" class="form-control" id="patient-age" placeholder="Age" required></div>
+                            <div class="col-md-3">
+                                <select id="patient-gender" class="form-select" required>
+                                    <option value="">Gender...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6"><input type="tel" class="form-control" id="patient-contact" placeholder="Contact No. (Optional)"></div>
+                        </div>
+                    </form>
+
+                    <hr class="my-4">
+                    <h5>2. Diagnosis</h5>
+                    <input type="text" class="form-control" id="diagnosis" placeholder="Enter Diagnosis / Syndrome" required>
+
+                    <hr class="my-4">
+                    <h5>3. Medicines</h5>
+                    <div id="medicines-list">
+                        </div>
+                    <button type="button" class="btn btn-outline-secondary mt-2" id="add-medicine-btn">
+                        + Add Medicine
+                    </button>
+
+                    <hr class="my-4">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-primary" id="save-prescription-btn">Save Prescription</button>
+                        <button class="btn btn-success" id="print-pdf-btn">Print / Download PDF</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="card p-4 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0">History</h3>
+                        <button id="logout-btn" class="btn btn-sm btn-outline-danger">Logout</button>
+                    </div>
+                    <hr>
+                    <div class="input-group mb-3">
+                        <input type="text" id="search-patient" class="form-control" placeholder="Search by patient name...">
+                        <button class="btn btn-outline-secondary" type="button" id="search-btn">Search</button>
+                    </div>
+                    <div id="prescription-history" class="list-group overflow-auto" style="max-height: 80vh;">
+                        </div>
+                </div>
+                 <div id="alert-container" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
